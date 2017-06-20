@@ -11,8 +11,12 @@ public class Basket {
 	public Integer getQuantity(Fruit fruit){
 		return items.getOrDefault(fruit, 0);
 	}
-	public void setQuantity(Fruit fruit, Integer number) {
-		this.items.put(fruit, number);
+	public void setQuantity(Fruit fruit, int number) {
+		if (number >= 0) {
+			this.items.put(fruit, number);}
+		else {
+			throw new IllegalArgumentException("Quantity must be positive");
+		}
 	}
 	
 
